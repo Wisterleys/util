@@ -27,8 +27,8 @@
     <input type="text" name="" id="clear" placeholder="Remove... . / - ">
     <script>
         document.querySelector("#clear").addEventListener("blur",e=>{
-            e.target.value?document.querySelector("#clear").value = e.target.value.replace(/[\ \.\-\\]/g,""):0
             if(e.target.value){
+                document.querySelector("#clear").value = e.target.value.replace(/[\ \.\-\\]/g,"")
                 e.target.select()
                 const res = document.execCommand("copy")
                 if(res){
