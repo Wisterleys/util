@@ -21,30 +21,39 @@
             padding: 10px;
             text-align: center;
         }
+        p{
+            height: 10px;
+        }
         div{
             width: 200px;
             height: 50px;
             display: flex;
             flex-direction: column;
-            justify-content: space-around;
+        }
+        section{
+            display: flex;
         }
     </style>
 </head>
 <body>
     <div>
-        <span></span>
-        <input type="text" name="" id="clear" placeholder="Remove... . / - ">
+        <label for="res"></label>
+        <section>
+            <input type="text" name="res" id="clear" placeholder="Remove... . / - ">
+            <button id="btn">Copiar</button>
+        </section>
     </div>
     <script>
-        document.querySelector("#clear").addEventListener("blur",e=>{
-            if(e.target.value){
-                document.querySelector("#clear").value = e.target.value.replace(/[\ \/\.\-\\]/g,"")
-                e.target.select()
+        document.querySelector("#btn").addEventListener("click",e=>{
+            let tag = document.querySelector("#clear");
+            if(tag.value){
+                tag.value = tag.value.replace(/[\ \/\.\-\\]/g,"")
+                tag.select()
                 const res = document.execCommand("copy")
                 setTimeout(()=>{
                     if(res){
-                        document.querySelector("span").innerText="copiado!"
-                        setTimeout(l=>{document.querySelector("span").innerText=""},2000)
+                        document.querySelector("label").innerText="copiado!"
+                        setTimeout(l=>{document.querySelector("label").innerText=""},2000)
                     }
                 },100)
             }
