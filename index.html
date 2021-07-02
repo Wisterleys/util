@@ -31,10 +31,12 @@
                 document.querySelector("#clear").value = e.target.value.replace(/[\ \.\-\\]/g,"")
                 e.target.select()
                 const res = document.execCommand("copy")
-                if(res){
-                    e.target.value="copiado!"
-                    setTimeout(l=>{e.target.value=""},2000)
-                }
+                setTimeout(()=>{
+                    if(res){
+                        e.target.value="copiado!"
+                        setTimeout(l=>{e.target.value=""},2000)
+                    }
+                },100)
             }
         })
     </script>
