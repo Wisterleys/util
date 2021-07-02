@@ -21,22 +21,32 @@
             padding: 10px;
             text-align: center;
         }
+        div{
+            width: 200px;
+            height: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
     </style>
 </head>
 <body>
-    <input type="text" name="" id="clear" placeholder="Remove... . / - ">
+    <div>
+        <span></span>
+        <input type="text" name="" id="clear" placeholder="Remove... . / - ">
+    </div>
     <script>
         document.querySelector("#clear").addEventListener("blur",e=>{
             if(e.target.value){
-                document.querySelector("#clear").value = e.target.value.replace(/[\ \.\-\\]/g,"")
+                document.querySelector("#clear").value = e.target.value.replace(/[\ \/\.\-\\]/g,"")
                 e.target.select()
                 const res = document.execCommand("copy")
                 setTimeout(()=>{
                     if(res){
-                        e.target.value="copiado!"
-                        setTimeout(l=>{e.target.value=""},2000)
+                        document.querySelector("span").innerText="copiado!"
+                        setTimeout(l=>{document.querySelector("span").innerText=""},2000)
                     }
-                },1000)
+                },100)
             }
         })
     </script>
