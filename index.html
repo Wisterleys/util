@@ -4,46 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/js/bootstrap.min.js">
     <title>Remover pontos e traços de cnpj e CPF</title>
-    <style>
-        html,body{
-            padding: 0px;
-            margin:0px
-        }
-        body{
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        input{
-            padding: 10px;
-            text-align: center;
-        }
-        p{
-            height: 10px;
-        }
-        div{
-            width: 200px;
-            height: 50px;
-            display: flex;
-            flex-direction: column;
-        }
-        section{
-            display: flex;
-        }
-    </style>
 </head>
 <body>
-    <div>
+    <div class="container form-group">
         <label for="res"></label>
-        <section>
-            <input type="text" name="res" id="clear" placeholder="Remove... . / - ">
-            <button id="btn">Copiar</button>
+        <section class="row form-control">
+            <input type="text" name="res" id="clear" placeholder="Remove... . / - " class="form-control col-md-4">
+            <button id="btn" class="btn btn-outline-primary col-md-12">Remover</button>
+        </section>
+        <br>
+        <section class="row form-control">
+            <div class="centerText col-md-12">
+                <form action="" class="col-md-12">
+                    <textarea name="charcount" class="form-control" id="charcount"></textarea><br>  
+                
+                <input type="button" id="conta" value="Conta caracteres" class="btn btn-outline-primary">
+                <input type="reset" name="Reset" value="Redefinir" class="btn btn-outline-primary">
+                <label for="displaycount">Size:</label>
+                <div id="displaycount" class="btn btn-outline-primary w-2"></div>
+                </form>
+            </div>
+                
         </section>
     </div>
     <script>
+        document.querySelector("#displaycount").innerHTML=0
+         document.querySelector("#conta").addEventListener("click",e=>{
+            let tag = document.querySelector("#charcount");
+            document.querySelector("#displaycount").innerHTML=tag.value.length
+         })
         document.querySelector("#btn").addEventListener("click",e=>{
             let tag = document.querySelector("#clear");
             if(tag.value){
