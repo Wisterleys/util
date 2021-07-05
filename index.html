@@ -11,14 +11,16 @@
 </head>
 <body>
     <div class="container form-group">
-        <label for="res"></label>
-        <section class="row form-control">
+        <section class="row form-control bg-dark">
+            <p class="h5 bg-dark text-light text-center">Remove espaços e / . - ...</p>
+            <label for="res"></label>
             <input type="text" name="res" id="clear" placeholder="Remove... . / - " class="form-control col-md-4">
             <button id="btn" class="btn btn-outline-primary col-md-12">Remover</button>
         </section>
         <br>
-        <section class="row form-control">
-            <div class="centerText col-md-12">
+        <section class="row form-control bg-dark">
+            <label for="cont" class="h5 bg-dark text-light text-center">Contagem de letras / contador de caracteres</label>
+            <div class="centerText col-md-12" id="cont">
                 <form action="" class="col-md-12">
                     <textarea name="charcount" class="form-control" id="charcount"></textarea><br>  
                 
