@@ -43,6 +43,7 @@
             let tag = document.querySelector("#clear");
             if(tag.value){
                 tag.value = tag.value.replace(/[\ \/\.\-\\]/g,"")
+                tag.value = tag.value.trimStart().trimEnd();
                 tag.select()
                 const res = document.execCommand("copy")
                 setTimeout(()=>{
